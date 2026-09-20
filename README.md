@@ -1,3 +1,14 @@
+Project Name: Dev Stack Builder
+
+Description: A React and TypeScript app that lets developers explore different frontend, backend, database, and tooling technologies, then build their own personal tech stack by adding and removing tools from a list.
+
+Technology Used: React, TypeScript, Vite, Tailwind CSS, React Toastify, React Icons, JSON
+
+Features used in the project:
+Browse 10+ technologies with name, category, difficulty, rating, and description, all loaded from a JSON file.
+Add technologies to a "Your Stack" panel, with duplicate prevention and toast notifications for add, remove, and remove all actions.
+Fully responsive design that works on mobile, tablet, and desktop, with a sticky navbar and mobile menu.
+
 1...What is JSX, and why is it used in React?
 
 => JSX lets us write HTML-like code inside JavaScript. React uses it because it makes it easier to see what the UI will look like instead of writing everything with plain JavaScript functions. 
