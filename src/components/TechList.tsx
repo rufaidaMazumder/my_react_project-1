@@ -3,9 +3,11 @@ import TechCard from "./TechCard";
 
 interface TechListProps {
     technologies: Technology[];
+    stack: Technology[];
+    handleAddToStack: (tech: Technology) => void;
 }
 
-const TechList = ({ technologies }: TechListProps) => {
+const TechList = ({ technologies, stack, handleAddToStack }: TechListProps) => {
     return (
         <section className="flex-1">
 
@@ -25,6 +27,8 @@ const TechList = ({ technologies }: TechListProps) => {
                     <TechCard
                         key={tech.id}
                         tech={tech}
+                        stack={stack}
+                        handleAddToStack={handleAddToStack}
                     />
                 ))}
 

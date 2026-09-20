@@ -2,9 +2,13 @@ import type { Technology } from "../types";
 
 interface TechCardProps {
     tech: Technology;
+    stack: Technology[];
+    handleAddToStack: (tech: Technology) => void;
 }
 
-const TechCard = ({ tech }: TechCardProps) => {
+const TechCard = ({ tech, stack, handleAddToStack }: TechCardProps) => {
+    const isAdded = stack.some((item) => item.id === tech.id);
+
     return (
         <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
 
@@ -48,8 +52,16 @@ const TechCard = ({ tech }: TechCardProps) => {
                     ★ {tech.rating}
                 </span>
 
-                <button className="rounded-full border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50">
-                    Add to Stack
+                <button
+                    onClick={() => handleAddToStack(tech)}
+                    disabled={isAdded}
+                    className={
+                        isAdded
+                            ? "rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-600"
+                            : "rounded-full border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50"
+                    }
+                >
+                    {isAdded ? "✓ Added to Stack" : "Add to Stack"}
                 </button>
 
             </div>

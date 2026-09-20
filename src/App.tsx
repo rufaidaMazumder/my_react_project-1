@@ -58,7 +58,13 @@ const App = () => {
 
         {error && (<p className="py-10 text-center text-red-500">{error}</p>)}
 
-        {!loading && !error && (<MainLayout technologies={technologies} />)}
+        {!loading && !error && (
+            <MainLayout
+                technologies={technologies}
+                stack={stack}
+                handleAddToStack={handleAddToStack}
+            />
+        )}
 
         <ToastContainer position="top-right" autoClose={2500} />
     </div>
