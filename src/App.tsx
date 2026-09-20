@@ -20,6 +20,7 @@ const App = () => {
     const [technologies, setTechnologies] = useState<Technology[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [stack, setStack] = useState<Technology[]>([]);
 
     useEffect(() => {
         fetchTechnologies()
@@ -34,30 +35,18 @@ const App = () => {
             });
     }, []);
 
-    console.log(technologies);
-
     return (
-        <div>
-            <Navbar />
-            <Hero />
+    <div>
+        <Navbar />
+        <Hero />
 
-            {loading && (
-                <p className="py-10 text-center">
-                    Loading technologies...
-                </p>
-            )}
+        {loading && (<p className="py-10 text-center">Loading technologies...</p>)}
 
-            {error && (
-                <p className="py-10 text-center text-red-500">
-                    {error}
-                </p>
-            )}
+        {error && (<p className="py-10 text-center text-red-500">{error}</p>)}
 
-            {!loading && !error && (
-                <MainLayout technologies={technologies} />
-            )}
-        </div>
-    );
+        {!loading && !error && (<MainLayout technologies={technologies} />)}
+    </div>
+);
 };
 
 export default App;
