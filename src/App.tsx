@@ -3,6 +3,7 @@ import type { Technology } from "./types";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MainLayout from "./components/MainLayout";
+import Footer from "./components/Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -49,6 +50,21 @@ const App = () => {
         toast.success(tech.name + " added to your stack");
     };
 
+    const handleRemoveFromStack = (id: string) => {
+        const removedTech = stack.find((item) => item.id === id);
+
+        setStack((previousStack) => previousStack.filter((item) => item.id !== id));
+
+        if (removedTech) {
+            toast.info(removedTech.name + " removed from your stack");
+        }
+    };
+
+    const handleRemoveAll = () => {
+        setStack([]);
+        toast.error("All technologies removed from your stack");
+    };
+
     return (
     <div>
         <Navbar />
@@ -63,8 +79,12 @@ const App = () => {
                 technologies={technologies}
                 stack={stack}
                 handleAddToStack={handleAddToStack}
+                handleRemoveFromStack={handleRemoveFromStack}
+                handleRemoveAll={handleRemoveAll}
             />
         )}
+
+        <Footer />
 
         <ToastContainer position="top-right" autoClose={2500} />
     </div>
