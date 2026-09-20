@@ -4,7 +4,7 @@ const Hero = () => {
     return (
         <section className="container mx-auto px-8 py-20 flex flex-col md:flex-row justify-between items-center gap-10">
 
-            {/* Left side */}
+
             <div className="max-w-xl">
                 <h1 className="text-5xl font-bold leading-tight text-slate-900">
                     Build Your Ideal
@@ -19,21 +19,19 @@ const Hero = () => {
                 </p>
 
                 <div className="flex gap-3 mt-8">
-                    <button className="brand-gradient rounded-md px-4 py-2 text-sm font-medium text-white">Explore Technologies</button>
-
+                    <button className="brand-gradient rounded-md px-4 py-2 text-sm font-medium text-white">
+                        Explore Technologies
+                    </button>
                     <button className="rounded-md border border-slate-200 px-6 py-2 text-sm text-slate-600">
                         Learn More
                     </button>
                 </div>
             </div>
 
-            {/* Right side */}
+
+
             <div>
-                <img
-                    src={heroPic}
-                    alt="Development stack illustration"
-                    className="w-80"
-                />
+                <img className="w-102" src={heroPic} alt=""/>
             </div>
 
         </section>
