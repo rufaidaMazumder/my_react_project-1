@@ -1,9 +1,29 @@
 @import "tailwindcss";
 
 @theme{
-    --color-btnColor:#d91b7e;
+    --color-btnColor: #d91b7e;
+    --color-org: #ff5722;
+    --color-prpl: #7c3aed;
+    --color-pnk: #d81b7e;
 }
 
-body{
-    min-width: 320px;
+.brand-gradient {
+    background-image: linear-gradient(
+        to right,
+        var(--color-org),
+        var(--color-pnk),
+        var(--color-prpl)
+    );
+}
+
+.text-brand-gradient {
+    background-image: linear-gradient(
+        to right,
+        var(--color-org),
+        var(--color-pnk),
+        var(--color-prpl)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
