@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme{
+    --color-btnColor:#d91b7e;
+}
+
+body{
+    min-width: 320px;
+}
