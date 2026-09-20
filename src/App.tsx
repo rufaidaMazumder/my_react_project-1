@@ -3,6 +3,8 @@ import type { Technology } from "./types";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MainLayout from "./components/MainLayout";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const fetchTechnologies = async () => {
     const res = await fetch("/data.json");
@@ -35,6 +37,18 @@ const App = () => {
             });
     }, []);
 
+    const handleAddToStack = (tech: Technology) => {
+        const isAlreadyAdded = stack.some((item) => item.id === tech.id);
+
+        if (isAlreadyAdded) {
+            toast.warning(tech.name + " is already in your stack");
+            return;
+        }
+
+        setStack((previousStack) => [...previousStack, tech]);
+        toast.success(tech.name + " added to your stack");
+    };
+
     return (
     <div>
         <Navbar />
@@ -45,6 +59,8 @@ const App = () => {
         {error && (<p className="py-10 text-center text-red-500">{error}</p>)}
 
         {!loading && !error && (<MainLayout technologies={technologies} />)}
+
+        <ToastContainer position="top-right" autoClose={2500} />
     </div>
 );
 };
